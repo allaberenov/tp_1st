@@ -1,6 +1,6 @@
 #!/bin/bash
-mkdir $8
-find $4 -name "*.$2" -exec cp {} "$8" \; 
-tar -zcf $6.tar.gz "$8"
+mkdir $6
+find $4 -name "*.$2" -exec cp {} "$6" \; 
+tar -zcf $8.tar.gz "$6"
 echo "done"
 
