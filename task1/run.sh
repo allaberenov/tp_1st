@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!/bin/bash
+
 intput_folder=0
 extension=0
 backup_folder=0
@@ -79,10 +81,7 @@ case $7 in
     backup_arch=$8
 esac
 
-#echo "$input_folder $extension $backup_folder $backup_arch"
-
-
-mkdir $backup_folder
-find $input_folder -name "*.$extension" -exec cp {} "$backup_folder" \; 
+cp -r $input_folder/ $backup_folder/
+find $backup_folder -type f -not -name "*.$extension" -exec rm {} \;
 tar -zcf $backup_arch "$backup_folder"
 echo "done"
