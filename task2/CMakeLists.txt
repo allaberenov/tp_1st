@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 project(C)
-
+##########################################################################################################################
 if (POLICY CMP0048)
     cmake_policy(SET CMP0048 NEW)
 endif (POLICY CMP0048)
@@ -9,7 +9,6 @@ if (POLICY CMP0077)
     cmake_policy(SET CMP0077 NEW)
 endif (POLICY CMP0077)
 
-project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.11.0)
 
 if(NOT CYGWIN AND NOT MSYS AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL QNX)
@@ -24,11 +23,31 @@ option(INSTALL_GTEST "Enable installation of googletest. (Projects embedding goo
 enable_testing()
 
 ADD_SUBDIRECTORY (C/googletest)
-enable_testing()
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+
+include_directories(${gtest_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR})
+
+find_package(PythonInterp REQUIRED)
+add_custom_command(
+  OUTPUT index.h 
+  COMMAND ${PYTHON_EXECUTABLE} ${C_SOURCE_DIR}/A/preparing.py ${C_SOURCE_DIR}
+  DEPENDS A/preparing.py
+  COMMENT "Генерация файла index.h"
+)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/lib)
+
+add_custom_target(RunGenerator DEPENDS index.h )
+add_executable(${PROJECT_NAME} C/main.cpp)
+add_dependencies(${PROJECT_NAME}  RunGenerator)
+
+
+add_subdirectory(B)
+target_link_libraries(${PROJECT_NAME}  lib)
+target_include_directories(${PROJECT_NAME}  PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_BINARY_DIR})
+
+
+
 
 ################################
 # Unit Tests
@@ -41,23 +60,8 @@ add_test( CTest CTest )
 
 
 
-find_package(PythonInterp REQUIRED)
-add_custom_command(
-  OUTPUT index.h 
-  COMMAND ${PYTHON_EXECUTABLE} ${C_SOURCE_DIR}/A/preparing.py ${C_SOURCE_DIR}
-  DEPENDS A/preparing.py
-  COMMENT "Генерация файла index.h"
-)
 
 
 
-add_custom_target(RunGenerator DEPENDS index.h COMMENT "Checking if re-generation is required")
 
-add_executable(C C/main.cpp)
-
-add_dependencies(C RunGenerator)
-
-add_subdirectory(B)
-target_link_libraries(C lib)
-target_include_directories(C PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_BINARY_DIR})
 
