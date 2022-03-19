@@ -4,10 +4,9 @@
 
 int main()
 {
-    int a;
+    int a=19;
     int TRUE=1;
     int FALSE=0;
-    scanf("%d", &a);
     if (is_even(a))
         printf("%d", FALSE);
     else
