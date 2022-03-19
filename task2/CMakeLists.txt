@@ -27,14 +27,17 @@ ADD_SUBDIRECTORY (C/googletest)
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/lib)
+
 ################################
 # Unit Tests
 ################################
 # Add test cpp file
-add_executable( runUnitTests C/main_test.cpp )
+add_executable( CTest C/main_test.cpp )
 # Link test executable against gtest & gtest_main
-target_link_libraries(runUnitTests gtest gtest_main)
-add_test( runUnitTests runUnitTests )
+target_link_libraries(CTest gtest gtest_main)
+add_test( CTest CTest )
 
 
 
@@ -46,8 +49,7 @@ add_custom_command(
   COMMENT "Генерация файла index.h"
 )
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/lib)
+
 
 add_custom_target(RunGenerator DEPENDS index.h COMMENT "Checking if re-generation is required")
 
