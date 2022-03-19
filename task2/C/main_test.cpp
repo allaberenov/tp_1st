@@ -1,7 +1,11 @@
-#include "gtest.h"
+#include "googletest/include/gtest/gtest.h"
 TEST(FirstTest, Is_even)
 {
-    EXPECT_EQ(12,1);
+    EXPECT_EQ(1,1);
 }
 
+TEST(ScndTest, Is_even)
+{
+    EXPECT_EQ(2,2);
+}
 
