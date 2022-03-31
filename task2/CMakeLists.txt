@@ -24,7 +24,7 @@ enable_testing()
 
 ADD_SUBDIRECTORY (C/googletest)
 
-include_directories(${gtest_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR})
+target_include_directories(${gtest_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR})
 
 find_package(PythonInterp REQUIRED)
 add_custom_command(
