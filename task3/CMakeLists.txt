@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-
+project(SimpleLibrary)
 if(${ARM_BUILD})
 	set(CMAKE_SYSTEM_NAME "Linux")
 #	set(CMAKE_SYSTEM_PROCESS "arm")
@@ -10,8 +10,6 @@ if(${ARM_BUILD})
 #	add_definitions("-Wall -g")
 	message("Компилятор установлен\n")
 endif()
-project(SimpleLibrary)
-
 
 include_directories(include)
 
@@ -23,6 +21,6 @@ add_executable(MainLib main_lib.cpp)
 
 target_link_libraries(MainLib buffer)
 
-
-install(TARGETS Main DESTINATION build)
-install(TARGETS MainLib DESTINATION build)
+install(DIRECTORY ${SimpleLibrary_SOURCE_DIR}/include DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(TARGETS Main DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
+install(TARGETS MainLib DESTINATION ${CMAKE_INSTALL_PREFIX}/include)

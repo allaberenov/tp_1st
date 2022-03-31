@@ -1,0 +1,15 @@
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/Main.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/MainLib.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/edit_cache.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/rebuild_cache.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/list_install_components.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/install.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/install/local.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/CMakeFiles/install/strip.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/buffer.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/edit_cache.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/rebuild_cache.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/list_install_components.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/install.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/install/local.dir
+/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/src/CMakeFiles/install/strip.dir
