@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/MainLib.dir/main_lib.cpp.o -o ../bin/MainLib  -Wl,-rpath,/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/lib: ../lib/libbuffer.so 

@@ -1,4 +1,0 @@
-/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/run/include/buffer.h
-/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/run/bin/Main
-/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/run/include/MainLib
-/home/kerim/Documents/TechProgSimpleLibrary/TechProgSimpleLibrary/build/run/lib/libbuffer.so
