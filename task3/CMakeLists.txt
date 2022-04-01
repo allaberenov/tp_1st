@@ -15,15 +15,19 @@ include_directories(include)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/lib)
 add_subdirectory(src)
-add_executable(Main main.cpp)
-add_executable(MainLib main_lib.cpp)
-#set_target_properties(MainLib PROPERTIES INSTALL_RPATH ${CMAKE_INSTALL_PREFIX} ))
+
 set_target_properties(MainLib PROPERTIES 
 	INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}"
 	BUILD_WITH_INSTALL_RPATH 1)
 	
 
+add_executable(Main main.cpp)
+add_executable(MainLib main_lib.cpp)
+#set_target_properties(MainLib PROPERTIES INSTALL_RPATH ${CMAKE_INSTALL_PREFIX} ))
+
+
 target_link_libraries(MainLib buffer)
+
 message("Линковка прошла успешно")
 message("${TARGET_LINKLIBRARIES_NAME}")
 install(DIRECTORY ${SimpleLibrary_SOURCE_DIR}/include DESTINATION ${CMAKE_INSTALL_PREFIX})
