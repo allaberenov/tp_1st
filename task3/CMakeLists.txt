@@ -22,11 +22,12 @@ set_target_properties(MainLib PROPERTIES
 	INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}"
 	BUILD_WITH_INSTALL_RPATH 1)
 	
-install(TARGETS Main DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
-install(TARGETS MainLib DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
 
 target_link_libraries(MainLib buffer)
 message("Линковка прошла успешно")
 message("${TARGET_LINKLIBRARIES_NAME}")
 install(DIRECTORY ${SimpleLibrary_SOURCE_DIR}/include DESTINATION ${CMAKE_INSTALL_PREFIX})
 message("Установка прошла успешно")
+install(TARGETS Main DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
+install(TARGETS MainLib DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
+
