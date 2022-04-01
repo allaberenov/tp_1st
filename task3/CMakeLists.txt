@@ -18,7 +18,12 @@ add_subdirectory(src)
 add_executable(Main main.cpp)
 add_executable(MainLib main_lib.cpp)
 #set_target_properties(MainLib PROPERTIES INSTALL_RPATH ${CMAKE_INSTALL_PREFIX} ))
-install(TARGETS Main DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
+
+set_target_properties(MainLib PROPERTIES 
+	INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}"
+	BUILD_WITH_INSTALL_RPATH 1
+)
+
 install(TARGETS MainLib DESTINATION ${CMAKE_INSTALL_PREFIX/bin})
 
 target_link_libraries(MainLib buffer)
