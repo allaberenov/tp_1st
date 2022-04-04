@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
 project(C)
 ##########################################################################################################################
+
+
 if (POLICY CMP0048)
     cmake_policy(SET CMP0048 NEW)
 endif (POLICY CMP0048)
@@ -23,9 +25,7 @@ option(INSTALL_GTEST "Enable installation of googletest. (Projects embedding goo
 enable_testing()
 
 ADD_SUBDIRECTORY (C/googletest)
-
-target_include_directories(${gtest_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR})
-
+include_directories(${gtest_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR})
 find_package(PythonInterp REQUIRED)
 add_custom_command(
   OUTPUT index.h 
@@ -40,7 +40,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${C_SOURCE_DIR}/lib)
 add_custom_target(RunGenerator DEPENDS index.h )
 add_executable(${PROJECT_NAME} C/main.cpp)
 add_dependencies(${PROJECT_NAME}  RunGenerator)
-
+target_include_directories(${PROJECT_NAME}  PRIVATE ${MY_DIR})
 
 add_subdirectory(B)
 target_link_libraries(${PROJECT_NAME}  lib)
@@ -57,11 +57,4 @@ add_executable( CTest C/main_test.cpp )
 # Link test executable against gtest & gtest_main
 target_link_libraries(CTest gtest gtest_main)
 add_test( CTest CTest )
-
-
-
-
-
-
-
 
