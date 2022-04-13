@@ -7,21 +7,22 @@ def test_add():
     file_node_1 = file_1.construct_filenode('mama', True)
     assert file_node_1 == file_1.update_filenode(file_node_1)
 
-    file_2 = tree.Tree()
+    file = tree.Tree()
     doughter_file_node = node.FileNode('doughter', True, [])
     file_node_1 = file_1.construct_filenode('mama', False)
-    assert None == file_2.filter_empty_nodes(file_node_1)
+    assert None == file.filter_empty_nodes(file_node_1)
 
-
+    with pytest.raises(AttributeError):
+        file.get('sister', True)
     file_node = node.FileNode('mama', True, [doughter_file_node])
-    assert None == file_2.filter_empty_nodes(file_node)
+    assert None == file.filter_empty_nodes(file_node)
 
+    assert file_1.construct_filenode('text1.txt', False) == file.get('text1.txt', False)
+    assert None == file.get('text1.txt', True, True)
 
-    #file_test_1 = size_tree.SizeTree()
-    #assert file_1 == file_test_1.construct_filenode('mama', False)
-#
-#    file_2 = size_node.FileSizeNode('src', True, [file_1], 0)
-#   file_test_2 = size_tree.SizeTree()
- #   file_test_2.construct_filenode('src', True)
-#
-#    assert file_2 == file_test_2.update_filenode(file_2)
+    with pytest.raises(AttributeError):
+        file.get(file.get('text1.txt', True, False))
+
+    child1 = node.FileNode('mama/doughter', True, [])
+    child2 = node.FileNode('mama/sun', True, [])
+    assert node.FileNode('mama', True, [child1, child2]) != file.get('mama', True, True)
