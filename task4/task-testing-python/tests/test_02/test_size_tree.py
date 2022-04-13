@@ -8,12 +8,12 @@ def test_add():
     assert file_node_1 == file_1.update_filenode(file_node_1)
 
     file_2 = tree.Tree()
-    papa_file_node = node.FileNode('Papa', False, [])
-    file_node_1 = file_1.construct_filenode('mama/text1.txt', False)
+    doughter_file_node = node.FileNode('doughter', True, [])
+    file_node_1 = file_1.construct_filenode('mama', False)
     assert None == file_2.filter_empty_nodes(file_node_1)
 
 
-    file_node = node.FileNode('mama', True, [papa_file_node])
+    file_node = node.FileNode('mama', True, [doughter_file_node])
     assert None == file_2.filter_empty_nodes(file_node)
 
 
