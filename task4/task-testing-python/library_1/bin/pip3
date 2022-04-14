@@ -1,4 +1,4 @@
-#!/home/kerim/Documents/Git_TP/task4/task-testing-python/library_1/bin/python3
+#!/home/kerim/Documents/Git_TP/task4/task-testing-python/library_1/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
