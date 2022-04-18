@@ -5,9 +5,7 @@ import requests_mock
 import os
 import requests
 
-
-APPID = "edd66adbb181089cb7a6be4fd0329c15"  # <-- Put your OpenWeatherMap appid here!
-URL_BASE = "http://api.openweathermap.org/data/2.5/"
+APPID = os.environ['APPID']
 
 
 def test_add():
