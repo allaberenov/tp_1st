@@ -6,6 +6,7 @@ import os
 import requests
 
 APPID = os.environ['APPID']
+URL_BASE = "http://api.openweathermap.org/data/2.5/"
 
 
 def test_add():
