@@ -1,0 +1,6 @@
+pytest-cov
+pytest
+coverage
+requests
+requests-mock
+
