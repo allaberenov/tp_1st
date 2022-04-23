@@ -14,8 +14,10 @@ FROM ubuntu:latest
 
 # Добавим пользователя, потому как в Docker по умолчанию используется root
 # Запускать незнакомое приложение под root'ом неприлично :)
-RUN groupadd -r sample && useradd -r -g sample sample
-USER sample
+
+RUN useradd -ms /bin/bash tp2022user
+USER tp2022user
+WORKDIR /home/tp2022user
 
 # Установим рабочую директорию нашего приложения
 WORKDIR /app
