@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y install cmake
 
 COPY . /app
 ADD . /app
-WORKDIR /app/cmake_with_flask/build
+WORKDIR /app/cmake-with-flask/build
 RUN cmake ..
 RUN make
 
@@ -24,5 +24,5 @@ WORKDIR /app
 COPY --from=build /app .
 
 # Установим точку входа
-ENTRYPOINT ["bash", "-l", "-c", "./cmake_with_flask/bin/C"]
+ENTRYPOINT ["bash", "-l", "-c", "./cmake-with-flask/bin/C"]
 #RUN Task6
