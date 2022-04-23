@@ -4,8 +4,8 @@ WORKDIR /opt/techprog
 RUN apt-get update
 RUN apt-get install -y
 RUN apt-get update && apt-get -y install cmake
-
-
+RUN apt-get install -y python3 python3-pip
+RUN python3 -m pip install flask
 COPY . /app
 ADD . /app
 WORKDIR /app/build
@@ -27,5 +27,8 @@ WORKDIR /app
 COPY --from=build /app .
 
 # Установим точку входа
-ENTRYPOINT ["bash", "-l", "-c", "./bin/C"]
-#RUN Task6
+#RUN 
+EXPOSE 8898
+
+ENTRYPOINT ["bash", "-l", "-", "./bin/C"]
+ENTRYPOINT ["python3", "app.py", "--port", "8898", "--host", "0.0.0.0"]
