@@ -1,4 +1,4 @@
-FROM gcc:latest 
+FROM gcc:latest  as build
 # Выполним сборку нашего проекта
 RUN apt-get update
 RUN apt-get install -y
@@ -10,28 +10,19 @@ WORKDIR /app/cmake_with_flask/build
 RUN cmake ..
 RUN make
 
-FROM ubuntu:latest as base
+FROM ubuntu:latest
 
-#WORKDIR /app/cmake_with_flask
-
-COPY --from=build /app/cmake_with_flask/bin/C /cmake_with_flask
-CMD [ "./cmake_with_flask/C" ]
-
-#RUN cmake .. && \ cmake --build
-
-# В качестве базового образа используем ubuntu:latest
-
-
+# Добавим пользователя, потому как в Docker по умолчанию используется root
+# Запускать незнакомое приложение под root'ом неприлично :)
+RUN groupadd -r sample && useradd -r -g sample sample
+USER sample
 
 # Установим рабочую директорию нашего приложения
-#WORKDIR /app
+WORKDIR /app
+
+# Скопируем приложение со сборочного контейнера в рабочую директорию
+COPY --from=build /app .
 
 # Установим точку входа
-
-#CMD [ "./bin/C" ]
-    
-
-# В качестве базового образа используем ubuntu:latest
-#FROM ubuntu:latest
-#WORKDIR /bin
+ENTRYPOINT ["bash", "-l", "-c", "./cmake_with_flask/bin/C"]
 #RUN Task6
