@@ -41,4 +41,4 @@ jobs:
       with: 
         exec-path: bin/CTestExe
         working-directory: task-ci
-        report-path: test-report/report.xml
+        report-path: test-report
