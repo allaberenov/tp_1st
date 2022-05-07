@@ -48,7 +48,7 @@ jobs:
     - name: UploadArtifacts
       uses: actions/upload-artifact@v3
       with:
-        name: UploadArtifacts
+        name: Distributive
         path: |
           task6/task-ci/bin/*
           task6/task-ci/lib/*
