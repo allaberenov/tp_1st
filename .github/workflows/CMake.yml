@@ -45,8 +45,8 @@ jobs:
         working-directory: task6/task-ci
         report-path: report.xml
         
-    
-    - uses: actions/upload-artifact@v3
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@v3
       with:
         name: UploadArtifacts
         path: |
