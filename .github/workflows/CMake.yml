@@ -41,5 +41,5 @@ jobs:
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: bin/CTestExe
-        working-directory: task-ci
+        working-directory: task6/task-ci
         report-path: report.xml
