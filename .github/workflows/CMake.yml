@@ -45,9 +45,10 @@ jobs:
         working-directory: task6/task-ci
         report-path: report.xml
         
-    - name: UploadArtifacts
+    
     - uses: actions/upload-artifact@v3
       with:
+        name: UploadArtifacts
         path: |
           task6/task-ci/bin/*
           task6/task-ci/lib/*
