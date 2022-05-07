@@ -37,8 +37,9 @@ jobs:
         ./CTestExe
         
     - name: Test
+    # Runs a single command using the runners shell
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: bin/CTestExe
         working-directory: task-ci
-        report-path: test-report
+        report-path: task-ci
